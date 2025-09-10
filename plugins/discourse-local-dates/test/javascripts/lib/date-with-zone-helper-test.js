@@ -165,5 +165,18 @@ module("lib:date-with-zone-helper", function () {
       "2020-12-01T15:36:00.000+01:00",
       "it correctly adds from a isDST date to a !isDST date"
     );
+
+    // Testing with Arabic numieral date:
+    /*
+    let dateAr = buildDateHelper({
+      day: "١",
+      month: "٣",
+      hour: "١٥",
+      minute: "٢٢",
+      timezone: PARIS,
+    });
+
+    assert.true(dateAr.isDST());
+    */
   });
 });

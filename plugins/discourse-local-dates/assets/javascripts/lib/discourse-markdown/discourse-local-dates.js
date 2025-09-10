@@ -1,7 +1,36 @@
 moment.tz.link(["Asia/Kolkata|IST", "Asia/Seoul|KST", "Asia/Tokyo|JST"]);
 const timezoneNames = moment.tz.names();
+const arabMap = {
+  "٠": "0",
+  "١": "1",
+  "٢": "2",
+  "٣": "3",
+  "٤": "4",
+  "٥": "5",
+  "٦": "6",
+  "٧": "7",
+  "٨": "8",
+  "٩": "9",
+};
 
 function addLocalDate(attributes, state, buffer, applyDataAttributes) {
+  console.log("we are here 111222", JSON.stringify(attributes));
+
+  attributes._default = (attributes._default || "")
+    .split("")
+    .map((ch) => arabMap[ch] || ch)
+    .join("");
+  attributes.time = (attributes.time || "")
+    .split("")
+    .map((ch) => arabMap[ch] || ch)
+    .join("");
+  attributes.date = (attributes.date || "")
+    .split("")
+    .map((ch) => arabMap[ch] || ch)
+    .join("");
+
+  console.log("we are (after change) here 111222", JSON.stringify(attributes));
+
   if (attributes.timezone) {
     if (!timezoneNames.includes(attributes.timezone)) {
       delete attributes.timezone;

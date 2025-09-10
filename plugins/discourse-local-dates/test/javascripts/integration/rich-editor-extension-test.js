@@ -28,6 +28,11 @@ module(
         '<p><span class="discourse-local-date-range" contenteditable="false"><span class="discourse-local-date cooked-date" data-range="from" data-date="2021-01-01" data-time="12:00:00" data-timezone="America/New_York">2021-01-01 12:00:00</span> → <span class="discourse-local-date cooked-date" data-range="to" data-date="2021-01-02" data-time="13:00:00" data-timezone="America/New_York">2021-01-02 13:00:00</span></span></p>',
         '[date-range from=2021-01-01T12:00:00 to=2021-01-02T13:00:00 timezone="America/New_York"]',
       ],
+      "local date in arabic format": [
+        "[date=٢٠٢١-٠١-٠١ time=١٢:٠٠:٠٠]",
+        '<p><span class="discourse-local-date cooked-date" data-date="٢٠٢١-٠١-٠١" data-time="١٢:٠٠:٠٠" contenteditable="false">2021-01-01 12:00:00</span></p>',
+        "[date=٢٠٢١-٠١-٠١ time=١٢:٠٠:٠٠]",
+      ],
     }).forEach(([name, [markdown, html, expectedMarkdown]]) => {
       test(name, async function (assert) {
         this.siteSettings.rich_editor = true;
