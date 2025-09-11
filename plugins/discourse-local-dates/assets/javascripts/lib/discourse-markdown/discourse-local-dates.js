@@ -14,23 +14,6 @@ const arabMap = {
 };
 
 function addLocalDate(attributes, state, buffer, applyDataAttributes) {
-  console.log("we are here 111222", JSON.stringify(attributes));
-
-  attributes._default = (attributes._default || "")
-    .split("")
-    .map((ch) => arabMap[ch] || ch)
-    .join("");
-  attributes.time = (attributes.time || "")
-    .split("")
-    .map((ch) => arabMap[ch] || ch)
-    .join("");
-  attributes.date = (attributes.date || "")
-    .split("")
-    .map((ch) => arabMap[ch] || ch)
-    .join("");
-
-  console.log("we are (after change) here 111222", JSON.stringify(attributes));
-
   if (attributes.timezone) {
     if (!timezoneNames.includes(attributes.timezone)) {
       delete attributes.timezone;
@@ -53,7 +36,10 @@ function addLocalDate(attributes, state, buffer, applyDataAttributes) {
   const dateTime = moment.tz(
     [attributes._default || attributes.date, attributes.time]
       .filter(Boolean)
-      .join("T"),
+      .join("T")
+      .split("")
+      .map((ch) => arabMap[ch] || ch)
+      .join(""),
     attributes.timezone || "Etc/UTC"
   );
 

@@ -30,7 +30,7 @@ module(
       ],
       "local date in arabic format": [
         "[date=٢٠٢١-٠١-٠١ time=١٢:٠٠:٠٠]",
-        '<p><span class="discourse-local-date cooked-date" data-date="٢٠٢١-٠١-٠١" data-time="١٢:٠٠:٠٠" contenteditable="false">2021-01-01 12:00:00</span></p>',
+        '<p><span class="discourse-local-date cooked-date" data-date="٢٠٢١-٠١-٠١" data-time="١٢:٠٠:٠٠" contenteditable="false">2021-01-01 ١١:٠٠:٠٠</span></p>',
         "[date=٢٠٢١-٠١-٠١ time=١٢:٠٠:٠٠]",
       ],
     }).forEach(([name, [markdown, html, expectedMarkdown]]) => {
